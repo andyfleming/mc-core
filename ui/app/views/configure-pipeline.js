@@ -15,6 +15,8 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     saved: {}
   }
 
+  $scope.stageNameEditingState = {}
+
   // Default values for view state (form and section visibility)
   $scope.standardVariablesSectionShowing = false
   $scope.customVariablesSectionShowing = false
@@ -171,6 +173,14 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
       .then(args => {
         let types = args[0].data.data
         let stages = args[1].data.data
+
+        // Set default status for name editing (for each stage)
+        stages.forEach(function(stage) {
+          $scope.stageNameEditingState[stage.id] = {
+            editing: false,
+            value: stage.name
+          }
+        })
 
         // Join the types with their stages
         $scope.stages = stages.map(stage => {
@@ -343,6 +353,35 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     })
     $scope.$apply()
   })
+
+  $scope.editStageName = function editStageName(stageId, currentStageName) {
+    $scope.stageNameEditingState[stageId].editing = true
+    $scope.stageNameEditingState[stageId].value = currentStageName
+  }
+
+  $scope.cancelEditStageName = function cancelEditStageName(stageId) {
+    $scope.stageNameEditingState[stageId].editing = false
+  }
+
+  /**
+   * Save a modified stage name
+   */
+  $scope.saveStageName = function saveStageName(stage) {
+
+    // Capture the new stage name
+    const newName = $scope.stageNameEditingState[stage.id].value
+
+    // Exit edit mode
+    $scope.stageNameEditingState[stage.id].editing = false
+
+    // Update the stage object so the heading gets updated
+    stage.name = newName
+
+    // Save the change to the server
+    $http.patch('/api/stage/' + stage.id, {
+      name: newName
+    })
+  }
 
   // Initialize view
   $scope.loadStages()
