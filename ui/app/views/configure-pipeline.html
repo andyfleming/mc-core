@@ -156,7 +156,16 @@
                       <i class="fa fa-sliders text-muted"></i> Options
                     </a>
 
-                    <h3>{{ $index + 1 }}. {{ stage.name }}</h3>
+                    <h3>{{ $index + 1 }}. {{ stage.name }}
+                        <a ng-click=""><i class="fa fa-pencil text-muted"></i></a>
+                    </h3>
+                    <div ng-show="false" class="input-group edit-stage-name">
+                        <input type="text" class="form-control" placeholder="Stage Name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Cancel</button>
+                            <button class="btn btn-success" type="button">Save</button>
+                        </span>
+                    </div>
                     <small class="text-muted">Extension Name › {{ stage.schema.name }}</small>
                 </div>
                 <div class="panel-body">
