@@ -175,12 +175,12 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
         let stages = args[1].data.data
 
         // Set default status for name editing (for each stage)
-        stages.forEach(function(stage){
+        stages.forEach(function(stage) {
           $scope.stageNameEditingState[stage.id] = {
             editing: false,
             value: stage.name
           }
-        });
+        })
 
         // Join the types with their stages
         $scope.stages = stages.map(stage => {
@@ -354,13 +354,13 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     $scope.$apply()
   })
 
-  $scope.editStageName = function editStageName(stageId, currentStageName){
-      $scope.stageNameEditingState[stageId].editing = true
-      $scope.stageNameEditingState[stageId].value = currentStageName
+  $scope.editStageName = function editStageName(stageId, currentStageName) {
+    $scope.stageNameEditingState[stageId].editing = true
+    $scope.stageNameEditingState[stageId].value = currentStageName
   }
 
-  $scope.cancelEditStageName = function cancelEditStageName(stageId){
-      $scope.stageNameEditingState[stageId].editing = false
+  $scope.cancelEditStageName = function cancelEditStageName(stageId) {
+    $scope.stageNameEditingState[stageId].editing = false
   }
 
   /**
@@ -379,7 +379,7 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
 
     // Save the change to the server
     $http.patch('/api/stage/' + stage.id, {
-      name: newName,
+      name: newName
     })
   }
 
