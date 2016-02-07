@@ -6,3 +6,4 @@ storage/**
 ui-build/**
 coverage/**
 .nyc_output/**
+test/**
