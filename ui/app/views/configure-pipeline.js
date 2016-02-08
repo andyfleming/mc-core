@@ -395,7 +395,7 @@ export default ['$q', '$rootScope', '$scope', '$http', '$stateParams', '$state',
   }
 
   $scope.addStageAtBeginning = function addStageAtBeginning() {
-    $rootScope.modal.open('stage', $rootScope.refresh, {pipelineId: $scope.pipeline.id, sort: (getLowestSortNumberFromStages() - 1) })
+    $rootScope.modal.open('stage', $rootScope.refresh, { pipelineId: $scope.pipeline.id, sort: (getLowestSortNumberFromStages() - 1) })
   }
 
   $scope.addStageAfter = function addStageAfter(stage) {
