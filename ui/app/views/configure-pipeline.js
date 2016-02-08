@@ -383,6 +383,10 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     })
   }
 
+  $scope.addStageAfter = function addStageAfter(stageId) {
+    alert('not implemented. TODO: add stage after stage ID: ' + stageId)
+  }
+
   // Initialize view
   $scope.loadStages()
   $scope.loadPipelinesAndProject()
