@@ -146,6 +146,7 @@
 
         <h3>Stages</h3>
         <div class="panel panel-default" ng-show="stages.length === 0"><div class="panel-body text-center"><p><small>Your pipeline has no stages.</small></p><a class="btn btn-default" ng-click="modal.open('stage', refresh, {pipelineId: pipeline.id})"><i class="fa fa-plus"></i> Add your first stage</a></div></div>
+        <div class="text-center add-stage-divider" ng-show="stages.length > 0"><hr><a ng-click="addStageAtBeginning()"><i class="fa fa-plus"></i><span> Add Stage Here</span></a></div>
         <!-- Drag N Drop Container -->
         <div dragula='"stages"'>
             <!-- Stages -->

@@ -383,6 +383,10 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     })
   }
 
+  $scope.addStageAtBeginning = function addStageAtBeginning() {
+    alert('not implemented. TODO: add stage before all stages')
+  }
+
   $scope.addStageAfter = function addStageAfter(stageId) {
     alert('not implemented. TODO: add stage after stage ID: ' + stageId)
   }
