@@ -149,7 +149,7 @@
         <!-- Drag N Drop Container -->
         <div dragula='"stages"'>
             <!-- Stages -->
-            <div class="panel panel-default pipeline-stage" ng-repeat="stage in stages | orderBy:'sort' " data-id="{{stage.id}}">
+            <div class="panel panel-default pipeline-stage" ng-repeat-start="stage in stages | orderBy:'sort' " data-id="{{stage.id}}">
                 <div class="title-block">
                     <i class="fa fa-check-square-o icon dragHandle"></i>
                     <a class="btn btn-default configure" ng-click="toggleOptions($event)">
@@ -200,6 +200,7 @@
                     </div>
                 </div>
             </div>
+            <div ng-repeat-end class="text-center add-stage-divider"><a href="#"><i class="fa fa-plus"></i><span> Add Stage Here</span></a></div>
         </div>
     </div>
 </div>

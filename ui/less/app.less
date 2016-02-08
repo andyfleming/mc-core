@@ -326,6 +326,37 @@ tr.off-white {
     }
 }
 
+.add-stage-divider {
+    border-top: solid 1px #EEEAF1;
+    position: relative;
+    height: 20px;
+    margin-top: 20px;
+    a {
+        display: inline-block;
+        position: absolute;
+        width: 133px;
+        background: white;
+        color: #D5CDDA;
+        top: -11px;
+        left: 40%;
+        font-size: 14px;
+
+        i {}
+
+        span {
+            display:none;
+        }
+
+        &:hover {
+            color: #675884;
+            text-decoration: none;
+        }
+    }
+    &:hover a span {
+        display: inline;
+    }
+}
+
 .list-group-item .fa-chevron-right {
     font-size: 12px;
     color: #CFCAD8;
