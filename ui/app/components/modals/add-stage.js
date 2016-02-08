@@ -11,18 +11,23 @@ export default ['$scope', '$http', '$uibModalInstance', 'data', function($scope,
         return stage
       }
     })
-    let sort = $scope.$parent.$stages
-      ? $scope.$parent.$stages.length + 1
-      : 0
+
+    let dataToSend = {
+      pipeline_config_id: data.pipelineId,
+      type: stage.fqid,
+      name: $scope.name || stage.name
+      // options: {}
+    }
+
+    if (typeof data.sort !== 'undefined') {
+      dataToSend.sort = data.sort
+    }
+
+    console.log('about to send data for new stage')
+    console.log(dataToSend)
 
     $http
-      .post('/api/stage/config', {
-        pipeline_config_id: data.pipelineId,
-        type: stage.fqid,
-        sort: sort,
-        name: $scope.name || stage.name
-        // options: {}
-      })
+      .post('/api/stage/config', dataToSend)
       .then(res => {
         console.log(res)
       })

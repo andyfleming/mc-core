@@ -1,6 +1,8 @@
 export default function(app) {
 
-  return function(name, url, templateUrl, controller) {
+  return function(name, url, templateUrl, controller, additionalOpts) {
+
+    additionalOpts = additionalOpts || {}
 
     // Add the route to ui-router
     app.config(['$stateProvider', function($stateProvider) {
@@ -11,10 +13,11 @@ export default function(app) {
       }
 
       if (controller) {
-
         opts.controller = controller
-
       }
+
+      // If there are additional options like onEnter, onExit, append them
+      opts = Object.assign(opts, additionalOpts)
 
       $stateProvider.state(name, opts)
 

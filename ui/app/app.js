@@ -68,7 +68,14 @@ addRoute('projects', '/projects', 'projects.html', views.projects)
 addRoute('pipelines', '/pipelines', 'pipelines.html', views.pipelines)
 addRoute('pipeline-execution-details', '/pipelines/executions/{id}', 'pipeline-execution-details.html', views.pipelineExecutionDetails)
 addRoute('pipeline', '/pipelines/{id}', 'pipeline.html', views.pipeline)
-addRoute('configure-pipeline', '/pipelines/{id}/configure', 'configure-pipeline.html', views.configurePipeline)
+addRoute('configure-pipeline', '/pipelines/{id}/configure', 'configure-pipeline.html', views.configurePipeline, {
+  //onEnter: function() {
+  //  jQuery('#main').removeClass('container').addClass('container-fluid')
+  //},
+  //onExit: function() {
+  //  jQuery('#main').addClass('container').removeClass('container-fluid')
+  //}
+})
 
 addRoute('health', '/health', 'health.html', views.health)
 

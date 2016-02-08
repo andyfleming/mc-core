@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaService', function($q, $scope, $http, $stateParams, $state, dragulaService) {
+export default ['$q', '$rootScope', '$scope', '$http', '$stateParams', '$state', 'dragulaService', function($q, $rootScope, $scope, $http, $stateParams, $state, dragulaService) {
 
   // This must be predefined for ng-model
   // values as objects
@@ -194,8 +194,6 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
         // Copy the options for stages to two maps
         stages.forEach(function(stage) {
 
-          console.log(stage)
-
           // Set up holder objects
           // - one for the "last saved" value
           // - one for the current (bound) form value
@@ -381,6 +379,27 @@ export default ['$q', '$scope', '$http', '$stateParams', '$state', 'dragulaServi
     $http.patch('/api/stage/' + stage.id, {
       name: newName
     })
+  }
+
+  function getLowestSortNumberFromStages() {
+
+    let lowest = 1
+
+    $scope.stages.forEach(function(stage) {
+      if (stage.sort < lowest) {
+        lowest = stage.sort
+      }
+    })
+
+    return lowest
+  }
+
+  $scope.addStageAtBeginning = function addStageAtBeginning() {
+    $rootScope.modal.open('stage', $rootScope.refresh, { pipelineId: $scope.pipeline.id, sort: (getLowestSortNumberFromStages() - 1) })
+  }
+
+  $scope.addStageAfter = function addStageAfter(stage) {
+    $rootScope.modal.open('stage', $rootScope.refresh, {pipelineId: $scope.pipeline.id, sort: stage.sort})
   }
 
   // Initialize view
