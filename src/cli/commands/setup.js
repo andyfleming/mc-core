@@ -224,7 +224,7 @@ module.exports = () => {
 
   function enterPassword(user) {
     return new Promise((resolve) => {
-      promptly.prompt('Enter your Mission Control password:', (err, password) => {
+      promptly.prompt('Enter your Mission Control password:', {silent: true}, (err, password) => {
         if (err) {
           console.log(err)
         }
