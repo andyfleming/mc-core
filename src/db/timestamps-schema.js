@@ -3,6 +3,6 @@ module.exports = (knex, table) => {
   // any other timestamps to ensure `updated_at`
   // is set with `on update CURRENT_TIMESTAMP`
   // TODO file a bug? could be solved here; https://github.com/tgriesser/knex/issues/547
-  table.timestamp('updated_at').notNullable()
+  table.timestamp('updated_at').notNullable().defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
   table.timestamp('created_at').notNullable().defaultTo(knex.fn.now())
 }
