@@ -50,6 +50,9 @@ module.exports = () => {
   if (!process.env.DB_HOST) {
     console.log(colors.yellow('Your .env file is missing the MySQL DB_HOST'))
   }
+  if (!process.env.DB_PORT) {
+    console.log(colors.yellow('Your .env file is missing the MySQL DB_PORT'))
+  }
   if (!process.env.DB_NAME) {
     console.log(colors.yellow('Your .env file is missing the MySQL DB_NAME'))
   }
@@ -68,6 +71,7 @@ module.exports = () => {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME
+      port: process.env.DB_PORT
     }
   })
 
