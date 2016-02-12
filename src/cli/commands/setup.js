@@ -50,6 +50,9 @@ module.exports = () => {
   if (!process.env.DB_HOST) {
     console.log(colors.yellow('Your .env file is missing the MySQL DB_HOST'))
   }
+  if (!process.env.DB_PORT) {
+    console.log(colors.yellow('Your .env file is missing the MySQL DB_PORT'))
+  }
   if (!process.env.DB_NAME) {
     console.log(colors.yellow('Your .env file is missing the MySQL DB_NAME'))
   }
@@ -67,7 +70,8 @@ module.exports = () => {
       host: process.env.DB_HOST,
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database: process.env.DB_NAME
+      database: process.env.DB_NAME,
+      port: process.env.DB_PORT
     }
   })
 
@@ -220,7 +224,7 @@ module.exports = () => {
 
   function enterPassword(user) {
     return new Promise((resolve) => {
-      promptly.prompt('Enter your Mission Control password:', (err, password) => {
+      promptly.prompt('Enter your Mission Control password:', {silent: true}, (err, password) => {
         if (err) {
           console.log(err)
         }
