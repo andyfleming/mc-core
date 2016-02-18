@@ -1,6 +1,6 @@
 export default ['$rootScope', '$scope', '$http', '$stateParams', '$state', function($rootScope, $scope, $http, $stateParams, $state) {
 
-  $scope.loadPipelineAndProject = function loadPipelineAndProject() {
+  function loadPipelineAndProject() {
     $http.get('/api/pipelines/' + $stateParams.id).then(response => {
       $scope.pipeline = response.data.data
 
@@ -11,6 +11,14 @@ export default ['$rootScope', '$scope', '$http', '$stateParams', '$state', funct
     })
   }
 
-  $scope.loadPipelineAndProject()
+  function loadPipelineExtensionSettings() {
+    $http.get('/api/pipelines/' + $stateParams.id + '/extension-settings').then(response => {
+      $scope.settings = response.data.data
+    })
+  }
+
+
+  loadPipelineAndProject()
+  loadPipelineExtensionSettings()
 
 }]
