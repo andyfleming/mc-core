@@ -2,9 +2,10 @@
 
 const PIPELINE_EXECUTIONS_SETTINGS = 'pipeline_extension_settings'
 
-let connection = require('../../db/connection')
-let success = require('../utils/responses/success')
-let error = require('../utils/responses/error')
+//let connection = require('../../db/connection')
+const success = require('../utils/responses/success')
+const error = require('../utils/responses/error')
+const query = require('../../db/queries')
 
 module.exports = {
 
@@ -30,6 +31,6 @@ module.exports = {
       })
       .then(success.bind(res))
       .catch(error.bind(res))
-  },
+  }
 
 }

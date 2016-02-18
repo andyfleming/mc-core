@@ -16,7 +16,7 @@ module.exports = {
       let settings = {}
 
       return connection.select()
-        .where('pipeline_config_id', req.params.id)
+        .where('pipeline_config_id', pipelineConfigId)
         .andWhere('vendor', vendor).andWhere('extension_id', extId)
         .andWhere('category', category).from('pipeline_extension_settings')
         .then(results => {
@@ -24,6 +24,6 @@ module.exports = {
           resolve(settings)
         })
     })
-  },
+  }
 
 }

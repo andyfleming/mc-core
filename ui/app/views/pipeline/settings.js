@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 export default ['$rootScope', '$scope', '$http', '$stateParams', '$state', function($rootScope, $scope, $http, $stateParams, $state) {
 
   $scope.loadPipelineAndProject = function loadPipelineAndProject() {
