@@ -1,6 +1,6 @@
 import dashboard from './dashboard'
 import pipeline from './pipeline'
-import configurePipeline from './configure-pipeline'
+import configurePipelineStages from './pipeline-configuration/configure-stages'
 import pipelines from './pipelines'
 import pipelineExecutionDetails from './pipeline-execution-details'
 import projects from './projects'
@@ -20,7 +20,7 @@ export default {
   dashboard,
   projects,
   pipeline,
-  configurePipeline,
+  configurePipelineStages,
   pipelines,
   pipelineExecutionDetails,
   health,

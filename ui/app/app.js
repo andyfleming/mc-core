@@ -68,14 +68,7 @@ addRoute('projects', '/projects', 'projects.html', views.projects)
 addRoute('pipelines', '/pipelines', 'pipelines.html', views.pipelines)
 addRoute('pipeline-execution-details', '/pipelines/executions/{id}', 'pipeline-execution-details.html', views.pipelineExecutionDetails)
 addRoute('pipeline', '/pipelines/{id}', 'pipeline.html', views.pipeline)
-addRoute('configure-pipeline', '/pipelines/{id}/configure', 'configure-pipeline.html', views.configurePipeline, {
-  //onEnter: function() {
-  //  jQuery('#main').removeClass('container').addClass('container-fluid')
-  //},
-  //onExit: function() {
-  //  jQuery('#main').addClass('container').removeClass('container-fluid')
-  //}
-})
+addRoute('configure-pipeline', '/pipelines/{id}/configure', 'pipeline-configuration/configure-stages.html', views.configurePipelineStages)
 
 addRoute('health', '/health', 'health.html', views.health)
 
@@ -92,3 +85,12 @@ addRoute('users', '/settings/general/users', 'users.html', views.users)
 addRoute('slack', '/settings/notifications/slack', 'slack.html', views.slack)
 addRoute('email', '/settings/notifications/email', 'email.html', views.email)
 
+// Example of route with onEnter and onExit hooks
+//addRoute('example', '/example', 'example.html', views.example, {
+//  onEnter: function() {
+//    jQuery('#main').removeClass('container').addClass('container-fluid')
+//  },
+//  onExit: function() {
+//    jQuery('#main').addClass('container').removeClass('container-fluid')
+//  }
+//})
