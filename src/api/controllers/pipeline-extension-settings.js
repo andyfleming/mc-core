@@ -1,6 +1,6 @@
 'use strict'
 
-const PIPELINE_EXECUTIONS_SETTINGS = 'pipeline_execution_settings'
+const PIPELINE_EXECUTIONS_SETTINGS = 'pipeline_extension_settings'
 
 let connection = require('../../db/connection')
 let success = require('../utils/responses/success')

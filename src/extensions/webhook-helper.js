@@ -18,7 +18,7 @@ module.exports = {
       return connection.select()
         .where('pipeline_config_id', req.params.id)
         .andWhere('vendor', vendor).andWhere('extension_id', extId)
-        .andWhere('category', category).from('pipeline_execution_settings')
+        .andWhere('category', category).from('pipeline_extension_settings')
         .then(results => {
           results.forEach(res => settings[res.key] = res.value)
           resolve(settings)
