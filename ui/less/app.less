@@ -180,6 +180,15 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 30px;
 }
 
+// Color override for list-groups
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: @mission-control-dark;
+    border-color: @mission-control-dark;
+}
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
+    background-color: #F7F6F9;
+}
+
 // Always show the scrollbar (to avoid content jumping back and forth)
 html {
     overflow-y:scroll;
