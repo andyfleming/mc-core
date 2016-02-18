@@ -68,7 +68,9 @@ addRoute('projects', '/projects', 'projects.html', views.projects)
 addRoute('pipelines', '/pipelines', 'pipelines.html', views.pipelines)
 addRoute('pipeline-execution-details', '/pipelines/executions/{id}', 'pipeline-execution-details.html', views.pipelineExecutionDetails)
 addRoute('pipeline', '/pipelines/{id}', 'pipeline.html', views.pipeline)
-addRoute('configure-pipeline', '/pipelines/{id}/configure', 'pipeline-configuration/configure-stages.html', views.configurePipelineStages)
+addRoute('configure-pipeline', '/pipelines/{id}/configure', 'pipeline/configure-stages.html', views.configurePipelineStages)
+addRoute('pipeline-settings', '/pipelines/{id}/settings', 'pipeline/settings.html', views.pipelineSettings)
+addRoute('pipeline-extension-settings', '/pipelines/{id}/extension-settings', 'pipeline/extension-settings.html', views.pipelineExtensionSettings)
 
 addRoute('health', '/health', 'health.html', views.health)
 

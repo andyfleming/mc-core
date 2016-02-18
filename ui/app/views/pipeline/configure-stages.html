@@ -8,35 +8,7 @@
 <h4 style="margin-top: 0;color: #aaa;font-weight: normal;margin-bottom: 30px;"><i class="fa fa-code"></i> {{ project.name }}</h4>
 
 <div class="row">
-    <div class="col-md-3">
-      <div class="list-group">
-        <a href="#" class="list-group-item active"><i class="fa fa-list-ul"></i> Stage + Var Configuration</a>
-        <a href="#" class="list-group-item"><i class="fa fa-cogs"></i> Pipeline Extension Settings</a>
-        <a href="#" class="list-group-item"><i class="fa fa-cog"></i> Pipeline Settings</a>
-        <a href="#" class="list-group-item"><i class="fa fa-comment"></i> Notifications</a>
-      </div>
-
-        <!--<div class="panel panel-default">-->
-            <!--<div class="panel-heading">Pipeline Settings</div>-->
-            <!--<div class="panel-body">-->
-                <!--<div class="form-group">-->
-                    <!--<label>Pipeline Name</label>-->
-                    <!--<div>-->
-                        <!--<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-pencil"></i></a>-->
-                        <!--{{ pipeline.name }}-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<hr>-->
-                <!--<div class="form-group">-->
-                    <!--<label><i class="fa fa-code"></i> Project</label>-->
-                    <!--<div>-->
-                        <!--<a href="javascript:void(0);" class="btn btn-xs btn-default pull-right"><i class="fa fa-pencil"></i></a>-->
-                        <!--{{ project.name }}-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    </div>
+    <div class="col-md-3" ng-include="'/app/views/pipeline/nav.html'"></div>
 
     <!-- Right column -->
     <div class="col-md-9">
