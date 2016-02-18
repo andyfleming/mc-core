@@ -1,6 +1,6 @@
 'use strict'
 
-const PIPELINE_EXECUTIONS_SETTINGS = 'pipeline_extension_settings'
+const PIPELINE_EXTENSION_SETTINGS = 'pipeline_extension_settings'
 
 //let connection = require('../../db/connection')
 const success = require('../utils/responses/success')
@@ -10,13 +10,13 @@ const query = require('../../db/queries')
 module.exports = {
 
   /**
-   * Fetches a list of pipeline execution
+   * Fetches a list of pipeline settings
    *
    * @param req
    * @param res
    */
   getList: (req, res) => {
-    query.all(PIPELINE_EXECUTIONS_SETTINGS)
+    query.all(PIPELINE_EXTENSION_SETTINGS)
       .where('pipeline_config_id', req.params.id)
       .then(rows => {
         let settings = {}

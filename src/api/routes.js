@@ -9,6 +9,7 @@ let middleware = {
 let controllers = {
   pipelines: require('./controllers/pipelines'),
   pipelineExecutions: require('./controllers/pipeline-executions'),
+  pipelineExtensionSetting: require('./controllers/pipeline-extension-settings'),
   pipelineVariables: require('./controllers/pipeline-variables'),
   projects: require('./controllers/projects'),
   user: require('./controllers/user'),
@@ -47,6 +48,9 @@ module.exports = function(app) {
   app.post('/api/pipelines/:pipeline_id/variables', controllers.pipelineVariables.createVar)
   app.patch('/api/pipelines/:pipeline_id/variables/:id', controllers.pipelineVariables.updateVar)
   app.delete('/api/pipelines/:pipeline_id/variables/:id', controllers.pipelineVariables.deleteVar)
+
+  // Pipeline Extension Settings
+  app.get('/api/pipelines/:pipeline_id/extension-settings', controllers.pipelineExtensionSetting.getList)
 
   // Pipeline Stages
   app.get('/api/pipelines/:id/stages', controllers.stages.getListForPipeline)
