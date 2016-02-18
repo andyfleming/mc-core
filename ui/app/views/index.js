@@ -13,8 +13,6 @@ import credentials from './credentials'
 import githubRepositories from './github-repositories'
 import configuration from './configuration'
 import users from './users'
-import slack from './slack'
-import email from './email'
 
 export default {
   dashboard,
@@ -31,7 +29,5 @@ export default {
   credentials,
   githubRepositories,
   configuration,
-  users,
-  slack,
-  email
+  users
 }
