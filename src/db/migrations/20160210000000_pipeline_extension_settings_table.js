@@ -4,7 +4,7 @@ let timestamps = require('../timestamps-schema')
 
 exports.up = function (knex, Promise) {
 
-  return knex.schema.createTable('pipeline_execution_settings', function (table) {
+  return knex.schema.createTable('pipeline_extension_settings', function (table) {
     table.increments('id')
     table.integer('pipeline_config_id').unsigned().references('pipeline_configs.id')
     table.string('vendor')
@@ -19,6 +19,6 @@ exports.up = function (knex, Promise) {
 
 exports.down = function (knex, Promise) {
 
-  return knex.schema.dropTable('pipeline_execution_settings')
+  return knex.schema.dropTable('pipeline_extension_settings')
 
 }
