@@ -9,5 +9,19 @@
 
     Extension settings
 
+    <pre>{{settings | json }}</pre>
+
+    <div ng-repeat="ext in settings">
+      <div class="panel panel-default" ng-repeat="group in ext">
+        <div class="panel-heading">{{ group.name }}</div>
+        <table class="table">
+          <tr ng-repeat="setting in group.settings">
+            <td>{{setting.name}}</td>
+            <td><input type="text" ng-model="setting.value"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
+
 </div>
