@@ -20,4 +20,8 @@ export default ['$rootScope', '$scope', '$http', '$stateParams', '$state', funct
   loadPipelineAndProject()
   loadPipelineExtensionSettings()
 
+  $scope.saveSettings = function saveSettings(ext, group) {
+
+  }
+
 }]
