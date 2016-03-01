@@ -37,6 +37,14 @@ module.exports = {
       })
       .then(success.bind(res))
       .catch(error.bind(res))
+  },
+
+  /**
+   * @param req
+   * @param res
+     */
+  updateSetting: (req, res) => {
+
   }
 
 }

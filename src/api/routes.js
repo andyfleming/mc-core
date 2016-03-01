@@ -51,6 +51,7 @@ module.exports = function(app) {
 
   // Pipeline Extension Settings
   app.get('/api/pipelines/:pipeline_id/extension-settings', controllers.pipelineExtensionSetting.getList)
+  app.patch('/api/pipelines/:pipeline_id/extension-settings/:vendor/:ext/:group/:key', controllers.pipelineExtensionSetting.updateSetting)
 
   // Pipeline Stages
   app.get('/api/pipelines/:id/stages', controllers.stages.getListForPipeline)
