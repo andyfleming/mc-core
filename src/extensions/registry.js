@@ -85,6 +85,9 @@ let registry = {
 
   },
 
+  /**
+   * @param module
+   */
   registerLogTypes: function registerLogTypes(module) {
 
     if (Array.isArray(module.logs)) {
@@ -102,6 +105,9 @@ let registry = {
 
   },
 
+  /**
+   * @param module
+   */
   registerWebhooks: function registerWebhooks(module) {
 
     console.log('running registry:registerWebhooks for ' + module.vendor + ' ' + module.name)
@@ -133,6 +139,9 @@ let registry = {
 
   },
 
+  /**
+   * @param app
+   */
   registerWebhookRoutes: function registerWebhookRoutes(app) {
 
     console.log('registering webhook routes with express app')
