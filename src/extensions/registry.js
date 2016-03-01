@@ -12,6 +12,7 @@ let registry = {
   _typesByFqids: {},
   _webhooks: [],
   _stageTypes: [],
+  _pipelineSettings: {},
 
   /**
    * Resolve all `mc-ext-*` modules and register them
@@ -33,6 +34,9 @@ let registry = {
     // Reset all of our internal registry pieces
     this._extensions = {}
     this._typesByFqids = {}
+    this._webhooks = []
+    this._stageTypes = []
+    this._pipelineSettings = {}
 
     // Reload the modules
     this.resolve(EXT_PATH)
@@ -60,10 +64,33 @@ let registry = {
     this.registerStageTypes(module)
     this.registerLogTypes(module)
     this.registerWebhooks(module)
+    this.registerPipelineSettingsGroups(module)
     //this.registerAccountsTypes(module)
 
   },
 
+  /**
+   * @param module
+   */
+  registerPipelineSettingsGroups: function registerPipelineSettingsGroups(module) {
+
+    if (Array.isArray(module.pipeline_settings)) {
+      module.pipeline_settings.forEach(settingsGroup => {
+        if (!this._pipelineSettings[module.id]) {
+          this._pipelineSettings[module.id] = {}
+        }
+        this._pipelineSettings[module.id][settingsGroup.id] = settingsGroup
+      })
+    }
+
+    console.log(this._pipelineSettings)
+
+  },
+
+  /**
+   *
+   * @param module
+   */
   registerStageTypes: function registerStageTypes(module) {
 
     if (Array.isArray(module.stages)) {
@@ -176,6 +203,14 @@ let registry = {
    */
   getStageTypes: function getStageTypes() {
     return this._stageTypes
+  },
+
+  /**
+   *
+   * @returns {{}}
+   */
+  getPipelineSettingsGroups: function getPipelineSettingsGroups() {
+    return this._pipelineSettings
   }
 
 }
